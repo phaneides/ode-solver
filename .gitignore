@@ -1,0 +1,10 @@
+# .gitignore
+# ========== C / C++ ========== #
+*.o
+*.a
+*.so
+*.exe
+/build/
+/dist/
+/*.out
+
