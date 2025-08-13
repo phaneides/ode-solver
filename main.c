@@ -24,7 +24,7 @@ int main(void)
     double t[N+1]; 
     double y[N+1]; 
 
-    ODEProblem prob = { .f = rhs_exp, .params = NULL}; //setup the problem. 
+    RHS rhs = { .f = rhs_exp, .params = NULL}; //setup the problem. 
     
     /*
 
@@ -32,7 +32,7 @@ int main(void)
     
     ode_solver method = rk4; 
 
-    method(&prob, 0.0, 1.0, dt, N, t, y); 
+    method(&rhs, 0.0, 1.0, dt, N, t, y); 
 
 
     puts(" k   t        y (rk4)");

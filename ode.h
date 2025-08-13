@@ -8,23 +8,23 @@ typedef double (*ode_rhs)(double t, double y, void *params);
 typedef struct {
     ode_rhs f;  // Right hand side function. 
     void *params; // Params (may be NULL) 
-}  ODEProblem;
+}  RHS;
 
 /* Generic Solver Signature */ 
-typedef void (*ode_solver)(const ODEProblem *prob, 
+typedef void (*ode_solver)(const RHS *rhs, 
                         double t0, double y0, 
                         double dt, int n, 
                         double *t_arr, double *y_arr); 
 
 /* Setup Solvers */ 
 
-void euler(const ODEProblem *prob, 
+void euler(const RHS *rhs, 
            double t0, double y0, // initial conditions
            double dt, int n, 
            double *t_arr, double *y_arr); 
 
 
-void rk4(const ODEProblem *prob, 
+void rk4(const RHS *rhs, 
            double t0, double y0, // initial conditions
            double dt, int n, 
            double *t_arr, double *y_arr); 
